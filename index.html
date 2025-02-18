@@ -3,161 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SUPPORT EVO‑FINANCE</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <title>EVO FINANCE - DEMANDE DU DEPOT</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Basic styling */
     body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to right, #1e3c72, #2a5298);
-      color: #333;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: #2C3E50;
+      color: #ECF0F1;
     }
-    h1 {
+
+    /* Header with animated gradient */
+    .header {
       text-align: center;
-      color: #fff;
-      margin-bottom: 20px;
-      font-size: 2.5em;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+      padding: 30px 0;
+      background: linear-gradient(45deg, #e74c3c, #f1c40f, #2ecc71, #3498db, #9b59b6);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
     }
-    .support-container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      position: relative;
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
-    .support-container h2 {
-      text-align: center;
-      color: #1e3c72;
-      margin-bottom: 30px;
-      font-size: 2em;
-      font-weight: 700;
+    .header h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      margin-top: 10px;
     }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Container for the form */
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #34495e;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Form styling */
     form {
       display: flex;
       flex-direction: column;
       gap: 15px;
     }
     form label {
-      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
     }
-    form input, form select {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1em;
+    form input,
+    form textarea,
+    form select {
       width: 100%;
-    }
-    .send-btn {
-      background: #ffcc00;
-      color: #000;
       padding: 10px;
       border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    form input:focus,
+    form textarea:focus,
+    form select:focus {
+      outline: none;
+      box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+    }
+    form button {
+      background: #e67e22;
+      border: none;
+      padding: 12px;
+      font-size: 1.1rem;
+      color: #fff;
       border-radius: 25px;
-      font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background: #d35400;
+    }
+    
+    /* Address group styling */
+    .address-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .address-item {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: transform 0.3s;
+      gap: 10px;
     }
-    .send-btn:hover {
-      transform: scale(1.05);
+    .address-item select {
+      flex: 1;
     }
-    .notification {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #28a745;
-      color: white;
-      padding: 20px;
+    .address-item button {
+      padding: 10px 15px;
+      font-size: 1rem;
+      background: #27ae60;
+      border: none;
       border-radius: 5px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      font-weight: bold;
-      text-align: center;
-      width: 80%;
-      max-width: 400px;
+      cursor: pointer;
+      transition: background 0.3s;
+      color: #fff;
+    }
+    .address-item button:hover {
+      background: #1e8449;
     }
   </style>
 </head>
 <body>
-  <h1>SUPPORT EVO‑FINANCE</h1>
-  <div class="support-container">
-    <h2>DEMANDE DE DÉPÔT</h2>
-    <form id="supportForm">
-      <label for="nom">Nom et prénom :</label>
-      <input type="text" id="nom" required>
-      
-      <label for="facebook">Nom sur Facebook ou Lien Facebook :</label>
-      <input type="text" id="facebook" required>
-      
-      <label for="telephone">Numéro de Téléphone :</label>
-      <input type="text" id="telephone" required>
-      
-      <label for="dateTransaction">Date :</label>
-      <input type="date" id="dateTransaction" required>
-      
-      <label for="montant">Montant :</label>
-      <input type="number" id="montant" required>
-      
-      <label for="contrat">Contrat du dépôt :</label>
-      <select id="contrat" required>
-        <option value="1 mois">1 mois</option>
-        <option value="3 mois">3 mois</option>
-        <option value="6 mois">6 mois</option>
-      </select>
-      
-      <button type="submit" class="send-btn">ENVOYER</button>
-    </form>
-
-    <div id="notification" class="notification">
-      ✅ Votre demande a bien été reçue ! Nous vous répondrons sur Facebook. Pour continuer, cliquez sur e-mail 
-    </div>
+  <!-- Header with animated gradient -->
+  <div class="header">
+    <h1>EVO FINANCE</h1>
+    <h2>DEMANDE DU DEPOT</h2>
   </div>
-  
+
+  <!-- Form container -->
+  <div class="container">
+    <form action="https://formspree.io/f/xbldpvba" method="POST">
+      <label>
+        NOM :
+        <input type="text" name="nom" required>
+      </label>
+      
+      <label>
+        NOM SUR FACEBOOK OU LIEN :
+        <input type="text" name="facebook" required>
+      </label>
+      
+      <label>
+        ADRESSE DU DEPOT :
+        <div class="address-group">
+          <div class="address-item">
+            <select id="adresse1" name="adresse1">
+              <option value="P1114188343">Payeer</option>
+              <option value="P1114188343">COMPTE PAYEER </option>
+              <option value="AUCUN ADRESSE ">Option 1</option>
+            </select>
+            <button type="button" class="copyBtn" data-target="adresse1">Copier</button>
+          </div>
+          <div class="address-item">
+            <select id="adresse2" name="adresse2">
+              <option value="1026473562">Binance</option>
+              <option value="1026473562">ID BINANCE </option>
+              <option value="aucun adresse ">E-MAIL BINANCE </option>
+            </select>
+            <button type="button" class="copyBtn" data-target="adresse2">Copier</button>
+          </div>
+        </div>
+      </label>
+      
+      <label>
+        MONTANT À DÉPOSER :
+        <input type="number" name="montant" step="any" required>
+      </label>
+      
+      <label>
+        TELEPHONE :
+        <input type="tel" name="telephone" required>
+      </label>
+      
+      <label>
+        DATE :
+        <input type="date" name="date" required>
+      </label>
+      
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <!-- JavaScript for the copy buttons -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById("supportForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-        
-        let nom = document.getElementById("nom").value;
-        let facebook = document.getElementById("facebook").value;
-        let telephone = document.getElementById("telephone").value;
-        let dateTransaction = document.getElementById("dateTransaction").value;
-        let montant = document.getElementById("montant").value;
-        let contrat = document.getElementById("contrat").value;
-        
-        let subject = encodeURIComponent("Demande du dépôt");
-        let body = encodeURIComponent(
-          "Nom et prénom : " + nom + "\n" +
-          "Nom sur Facebook ou Lien : " + facebook + "\n" +
-          "Numéro de Téléphone : " + telephone + "\n" +
-          "Date de Transaction : " + dateTransaction + "\n" +
-          "Montant : " + montant + " $\n" +
-          "Contrat du dépôt : " + contrat
-        );
-        
-        window.location.href = "mailto:evofinances2@gmail.com?subject=" + subject + "&body=" + body;
-        
-        // Afficher la notification
-        let notification = document.getElementById("notification");
-        notification.style.display = "block";
-        
-        // Cacher après 20 secondes
-        setTimeout(function() {
-          notification.style.display = "none";
-        }, 20000);
-        
-        document.getElementById("supportForm").reset();
+    const copyButtons = document.querySelectorAll('.copyBtn');
+    copyButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const selectElement = document.getElementById(targetId);
+        const selectedValue = selectElement.value;
+        navigator.clipboard.writeText(selectedValue)
+          .then(() => {
+            alert("Adresse copiée: " + selectedValue);
+          })
+          .catch(err => {
+            alert("Erreur lors de la copie: " + err);
+          });
       });
     });
   </script>
 </body>
 </html>
- 
